@@ -8,17 +8,18 @@ namespace Farmen
 {
     internal abstract class Entity
     {
-        public int Id { get; set; } 
+        public int Id { get; set; }
         protected string Name { get; set; }
+        public static int NewId = 1;
 
-
-        public Entity(int id, string name)
+        public Entity(string name)
         {
-            Id = id;
+            Id = NewId++;
             Name = name;
 
         }
+
         public abstract string GetDescription();
     }
-   
+
 }

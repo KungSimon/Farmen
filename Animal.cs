@@ -10,14 +10,29 @@ namespace Farmen
     {
         public string Species { get; set; }
 
-        public Animal (int id, string name, string species )
-            :base (id, name)
+        public Animal(string name, string species)
+            :base(name)
         {
             Species = species;
         }
         public override string GetDescription()
         {
-            throw new NotImplementedException();
+
+            if (Name.Length <= 6)
+            {
+                Console.WriteLine(Id + "\t" + Name + "\t\t\t" + Species);
+            }
+            else if (Name.Length > 6 || Name.Length <= 12)
+            {
+                Console.WriteLine(Id + "\t" + Name + "\t\t" + Species);
+            }
+            else
+            {
+                Console.WriteLine(Id + "\t" + Name + "\t" + Species);
+            }
+
+            return null;
         }
     }
+}
 }

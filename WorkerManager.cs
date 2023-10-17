@@ -9,14 +9,16 @@ namespace Farmen
 {
     internal class WorkerManager
     {
-        
-        List<Worker> workers=new List<Worker>();
-        public WorkerManager() 
+
+
+        List<Worker> workers = new List<Worker>();
+        List<string> specialitetsList = new List<string>();
+        public WorkerManager()
         {
-            workers.Add(new Worker(1, "Olle"));
-            workers.Add(new Worker(2, "Pelle"));
-            workers.Add(new Worker(3, "Rut"));
-            workers.Add(new Worker(4, "Pernilla"));
+            workers.Add(new Worker("Olle", specialitetsList));
+            workers.Add(new Worker("Pelle", specialitetsList));
+            workers.Add(new Worker("Rut", specialitetsList));
+            workers.Add(new Worker("Pernilla", specialitetsList));
         }
 
         public void WorkerMeny()
@@ -29,11 +31,10 @@ namespace Farmen
                 Console.WriteLine("1. View Workers");
                 Console.WriteLine("2. Add Worker");
                 Console.WriteLine("3. Remove Worker");
-                Console.WriteLine("4. Get Workers");
                 Console.WriteLine("9. Quit Menu");
                 string input = Console.ReadLine();
 
-           
+
                 switch (input)
                 {
                     case "1":
@@ -43,22 +44,19 @@ namespace Farmen
                     case "2":
                         AddWorker();
                         break;
-                        
+
                     case "3":
                         RemoveWorker();
                         break;
 
-                    case "4":
-                        break;
-                        
                     case "9":
-                        workerMenu = false; 
+                        workerMenu = false;
                         break;
 
                 }
             }
 
-            
+
         }
 
         private void RemoveWorker()
@@ -77,9 +75,9 @@ namespace Farmen
                     }
                 }
             }
-            catch 
-            { 
-                    Console.WriteLine("No such worker");
+            catch
+            {
+                Console.WriteLine("No such worker");
             }
         }
 
@@ -89,13 +87,45 @@ namespace Farmen
             Console.WriteLine("Give the worker an Id No.");
             int id = int.Parse(Console.ReadLine());
             Console.WriteLine("What is the workers name");
-            string name= Console.ReadLine();
-            Console.WriteLine("What is the workers speciality");
-            string speciality= Console.ReadLine();
+            string name = Console.ReadLine();
 
-            workers.Add(new Worker(id, name, speciality));
+            Addspeciality();
+            bool AddSpec = true;
+            while (AddSpec)
+            {
+                Console.WriteLine("Do you want to add speciality, Y or N?");
+                string input = Console.ReadLine();
+                if (input == "Y")
+                {
+                    Console.WriteLine("Add a speciality.");
+                    string speciality = Console.ReadLine();
+                    Worker worker = new Worker(name, specialitetsList);
+                    worker.Specialities.Add(speciality);
+                }
+                else if (input == "N")
+                {
+                    AddSpec = false;
+                }
+                else if (input != "Y" || input != "N")
+                {
+                    Console.WriteLine("Invalid Input. You need to choose Y or N");
+                }
 
-            Console.WriteLine($"You've added {name} to the list of workers" );
+            }
+            workers.Add(new Worker(name, specialitetsList));
+
+
+
+
+
+            Console.WriteLine($"You've added {name} to the list of workers");
+
+
+
+        }
+
+        private void Addspeciality()
+        {
 
         }
 
@@ -104,10 +134,14 @@ namespace Farmen
             Console.WriteLine();
             foreach (Worker worker in workers)
             {
-                
+
                 worker.GetDescription();
             }
-           
+
+        }
+        public void GetWorkers()
+        {
+            ViewWorkers();
         }
     }
 }
