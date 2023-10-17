@@ -15,7 +15,7 @@ namespace Farmen
             :base(name)
         {
             Capacity = capacity;
-            //AnimalInBuilding = animalInBuilding;  
+            AnimalInBuilding = new List<Animal>();  
         }
 
         public override string GetDescription()

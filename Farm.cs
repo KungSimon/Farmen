@@ -10,22 +10,22 @@ namespace Farmen
     {
         AnimalManager AnimalManager = new AnimalManager();
         WorkerManager WorkerManager = new WorkerManager();
+        BuildingManager BuildingManager = new BuildingManager();
         public Farm() { }
 
         public void MainMenu()
         {
-            Console.WriteLine("Main Menu");
-            Console.WriteLine("1. Animals");
-            Console.WriteLine("2. Workers");
-            Console.WriteLine("3. Buildings");
-            Console.WriteLine("4. Crops");
-            Console.WriteLine("9. Quit The Farm");
-
-            string input = Console.ReadLine();
-
             bool mainMenu = true;
             while (mainMenu)
             {
+                Console.WriteLine("Main Menu");
+                Console.WriteLine("1. Animals");
+                Console.WriteLine("2. Workers");
+                Console.WriteLine("3. Buildings");
+                Console.WriteLine("4. Crops");
+                Console.WriteLine("9. Quit The Farm");
+
+                string input = Console.ReadLine();
                 switch (input)
                 {
                     case "1":
@@ -39,7 +39,7 @@ namespace Farmen
                         BuildingManager.BuildingMenu();
                         break;
                     case "4":
-                        CropManager.CropMenu();
+                        //CropManager.CropMenu();
                         break;
 
                     case "9":
