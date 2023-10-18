@@ -18,6 +18,7 @@ namespace Farmen
             AnimalInBuilding = new List<Animal>();  
         }
 
+        
         public override string GetDescription()
         {
             if (Name.Length <= 6)
@@ -70,6 +71,16 @@ namespace Farmen
             }
             return false;
         }
-
+        public void RemoveAnimalInBuilding(int id)
+        {
+            
+            for (int i = 0; i < AnimalInBuilding.Count; i++)
+            {
+                if (AnimalInBuilding[i].Id == id)
+                {
+                    AnimalInBuilding.Remove(AnimalInBuilding[i]);
+                }
+            }
+        }
     }
 }

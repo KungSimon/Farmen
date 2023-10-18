@@ -15,10 +15,25 @@ namespace Farmen
         List<string> specialitetsList = new List<string>();
         public WorkerManager()
         {
-            workers.Add(new Worker("Olle", specialitetsList));
-            workers.Add(new Worker("Pelle", specialitetsList));
-            workers.Add(new Worker("Rut", specialitetsList));
-            workers.Add(new Worker("Pernilla", specialitetsList));
+            Worker worker1 = new Worker("Olle");
+            worker1.AddSpecialty("Cow");
+            worker1.AddSpecialty("Chicken");
+
+            Worker worker2 = new Worker("Pelle");
+            worker2.AddSpecialty("Design");
+            worker2.AddSpecialty("UI/UX");
+
+            Worker worker3 = new Worker("Rut");
+            worker3.AddSpecialty("Testing");
+            worker3.AddSpecialty("QA");
+
+            Worker worker4 = new Worker("Pernilla");
+            worker4.AddSpecialty("Project Management");
+
+            workers.Add(worker1);
+            workers.Add(worker2);
+            workers.Add(worker3);
+            workers.Add(worker4);
         }
 
         public void WorkerMeny()

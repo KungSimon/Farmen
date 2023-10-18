@@ -10,12 +10,17 @@ namespace Farmen
     internal class Worker : Entity
     {
 
-        public List<string> Specialities { get; set; }
+        public List<string> Specialties { get; set; }
 
-        public Worker(string name, List<string> specialites)
+        public Worker(string name)
         :base(name)
         {
-            Specialities = specialites;
+            Specialties = new List<String>();
+        }
+
+        public void AddSpecialty(string specialty)
+        {
+            Specialties.Add(specialty);
         }
 
         public override string GetDescription()
@@ -23,15 +28,15 @@ namespace Farmen
 
             if (Name.Length <= 6)
             {
-                Console.WriteLine(Id + "\t" + Name + "\t\t\t" + Specialities);
+                Console.WriteLine(Id + "\t" + Name + "\t\t\t" + Specialties);
             }
             else if (Name.Length > 6 || Name.Length <= 12)
             {
-                Console.WriteLine(Id + "\t" + Name + "\t\t" + Specialities);
+                Console.WriteLine(Id + "\t" + Name + "\t\t" + Specialties);
             }
             else
             {
-                Console.WriteLine(Id + "\t" + Name + "\t" + Specialities);
+                Console.WriteLine(Id + "\t" + Name + "\t" + Specialties);
             }
 
             return null;

@@ -18,11 +18,13 @@ namespace Farmen
             bool BuildingMenu = true;
             while (BuildingMenu)
             {
-                Console.WriteLine("Building menu.");
+                Console.WriteLine("Farm Buildings menu.");
                 Console.WriteLine("1. View buildings");
                 Console.WriteLine("2. Add building");
                 Console.WriteLine("3. Remove building");
-                Console.WriteLine("4. Add animals");
+                Console.WriteLine("4. List Animals in building");
+                Console.WriteLine("5. Add animal to building");
+                Console.WriteLine("6. remove animal form building");
                 Console.WriteLine("9. Quit");
 
                 string input = Console.ReadLine();
