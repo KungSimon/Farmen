@@ -12,23 +12,33 @@ namespace Farmen
 
 
         List<Worker> workers = new List<Worker>();
-        List<string> specialitetsList = new List<string>();
+        
         public WorkerManager()
         {
             Worker worker1 = new Worker("Olle");
             worker1.AddSpecialty("Cow");
             worker1.AddSpecialty("Chicken");
+            worker1.AddSpecialty("Tractor");
+            worker1.AddSpecialty("Sheep");
 
             Worker worker2 = new Worker("Pelle");
-            worker2.AddSpecialty("Design");
-            worker2.AddSpecialty("UI/UX");
+            worker2.AddSpecialty("Oats");
+            worker2.AddSpecialty("Cow");
+            worker2.AddSpecialty("Rye");
+            worker2.AddSpecialty("Wheat");
+            worker2.AddSpecialty("Tractor");
 
             Worker worker3 = new Worker("Rut");
-            worker3.AddSpecialty("Testing");
-            worker3.AddSpecialty("QA");
+            worker3.AddSpecialty("Chicken");
+            worker3.AddSpecialty("Rye");
+            worker3.AddSpecialty("Wheat");
+            worker3.AddSpecialty("Tractor"); 
 
             Worker worker4 = new Worker("Pernilla");
-            worker4.AddSpecialty("Project Management");
+            worker4.AddSpecialty("Cow");
+            worker4.AddSpecialty("Sheep");
+            worker4.AddSpecialty("Ray");
+            worker4.AddSpecialty("Tractor");
 
             workers.Add(worker1);
             workers.Add(worker2);
@@ -103,7 +113,7 @@ namespace Farmen
             int id = int.Parse(Console.ReadLine());
             Console.WriteLine("What is the workers name");
             string name = Console.ReadLine();
-
+            Worker worker = new Worker(name);
             Addspeciality();
             bool AddSpec = true;
             while (AddSpec)
@@ -114,8 +124,8 @@ namespace Farmen
                 {
                     Console.WriteLine("Add a speciality.");
                     string speciality = Console.ReadLine();
-                    Worker worker = new Worker(name, specialitetsList);
-                    worker.Specialities.Add(speciality);
+                    
+                    worker.Specialties.Add(speciality);
                 }
                 else if (input == "N")
                 {
@@ -127,7 +137,7 @@ namespace Farmen
                 }
 
             }
-            workers.Add(new Worker(name, specialitetsList));
+            workers.Add(worker);
 
 
 

@@ -26,20 +26,12 @@ namespace Farmen
         public override string GetDescription()
         {
 
-            if (Name.Length <= 6)
+                Console.WriteLine(Id + "\t" + Name);
+            foreach (string speciality in Specialties)
             {
-                Console.WriteLine(Id + "\t" + Name + "\t\t\t" + Specialties);
+                Console.WriteLine("\t\t\t" + speciality);
             }
-            else if (Name.Length > 6 || Name.Length <= 12)
-            {
-                Console.WriteLine(Id + "\t" + Name + "\t\t" + Specialties);
-            }
-            else
-            {
-                Console.WriteLine(Id + "\t" + Name + "\t" + Specialties);
-            }
-
-            return null;
+           return Name;
         }
 
     }
