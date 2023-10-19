@@ -12,6 +12,7 @@ namespace Farmen
         FarmBuilding farmBuilding = new FarmBuilding("Barn7", 20);
         List<FarmBuilding> farmBuildings = new List<FarmBuilding>();
         List<Animal> animals = new List<Animal>();
+        Animal animal = new Animal("");
         
         public BuildingManager()
         {
@@ -61,7 +62,9 @@ namespace Farmen
                     case "5":
                         AnimalManager animalManager = new AnimalManager();
                         animalManager.GetAnimals();
-                        farmBuilding.AddAnimalInBuilding(animals);
+                        Console.WriteLine("Choose an animal by ID.");
+                        var animalToAdd = Console.ReadLine();
+                        farmBuilding.AddAnimalInBuilding(animalToAdd);
                         break;
                     
                     case "6":

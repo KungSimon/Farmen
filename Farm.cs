@@ -11,6 +11,7 @@ namespace Farmen
         AnimalManager AnimalManager = new AnimalManager();
         WorkerManager WorkerManager = new WorkerManager();
         BuildingManager BuildingManager = new BuildingManager();
+        CropManager CropManager = new CropManager();
         public Farm() { }
 
         public void MainMenu()
@@ -39,7 +40,7 @@ namespace Farmen
                         BuildingManager.BuildingMenu();
                         break;
                     case "4":
-                        //CropManager.CropMenu();
+                        CropManager.CropMenu();
                         break;
 
                     case "9":

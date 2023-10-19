@@ -15,6 +15,10 @@ namespace Farmen
         {
             Species = species;
         }
+        public Animal(string name):base(name)
+        {
+
+        }
         public override string GetDescription()
         {
 

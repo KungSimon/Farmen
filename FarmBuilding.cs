@@ -73,33 +73,11 @@ namespace Farmen
             }
         }
 
-        public void AddAnimalInBuilding(Animal)
+        public void AddAnimalInBuilding(Animal animalToAdd)
         {
             if (AnimalInBuilding.Count < Capacity)
             {
-                Animal animalToAdd;
-                
-               
-                try
-                {
-                    int input = int.Parse(Console.ReadLine());
-                    for (int i = 0; i < animals.Count; i++)
-                    {
-                        if (animals[i].Id == input)
-                        {
-                            animalToAdd = animals[i];
-                            AnimalInBuilding.Add(animalToAdd);
-                            Console.WriteLine($"Added {animalToAdd.Id} to {Name}.");
-                            
-                        }
-                    }
-                }
-                catch
-                {
-
-                    Console.WriteLine("Animal not found. Please type a valid ID.");
-                }
-
+                AnimalInBuilding.Add(animalToAdd);
             }
             else
             {

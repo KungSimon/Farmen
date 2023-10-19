@@ -71,7 +71,9 @@ namespace Farmen
                         break;
 
                     case "3":
-                        RemoveWorker();
+                        Console.WriteLine("Choose an worker to remove by Id");
+                        int id = int.Parse(Console.ReadLine());
+                        RemoveWorker(id);
                         break;
 
                     case "9":
@@ -84,14 +86,8 @@ namespace Farmen
 
         }
 
-        private void RemoveWorker()
+        private void RemoveWorker(int id)
         {
-            Console.WriteLine("Choose a worker by Id");
-            ViewWorkers();
-            try
-            {
-                int id = int.Parse(Console.ReadLine());
-
                 for (int i = 0; i < workers.Count; i++)
                 {
                     if (workers[i].Id == id)
@@ -99,11 +95,6 @@ namespace Farmen
                         workers.Remove(workers[i]);
                     }
                 }
-            }
-            catch
-            {
-                Console.WriteLine("No such worker");
-            }
         }
 
         private void AddWorker()

@@ -44,11 +44,17 @@ namespace Farmen
                         break;
 
                     case "3":
-                        RemoveAnimal();
+                        Console.WriteLine("Choose an animal to remove by Id");
+                        int id = int.Parse(Console.ReadLine());
+                        RemoveAnimal(id);
                         break;
 
                     case "4":
                         //SwitchBuilding()
+                        break;
+
+                    case "5":
+                        FeedAnimal();
                         break;
 
                     case "9":
@@ -84,14 +90,8 @@ namespace Farmen
             }
 
         }
-        private void RemoveAnimal()
+        private void RemoveAnimal(int id)
         {
-            Console.WriteLine("Choose a animal by Id");
-            ViewAnimals();
-            try
-            {
-                int id = int.Parse(Console.ReadLine());
-
                 for (int i = 0; i < animals.Count; i++)
                 {
                     if (animals[i].Id == id)
@@ -99,11 +99,7 @@ namespace Farmen
                         animals.Remove(animals[i]);
                     }
                 }
-            }
-            catch
-            {
-                Console.WriteLine("No such animal");
-            }
+
         }
         public void GetAnimals()
         {

@@ -28,3 +28,11 @@ C:\Users\tobia\Source\Repos\Farmen2\bin\Debug\net6.0\Farmen.dll
 C:\Users\tobia\Source\Repos\Farmen2\bin\Debug\net6.0\Farmen.pdb
 C:\Users\tobia\Source\Repos\Farmen2\obj\Debug\net6.0\Farmen.genruntimeconfig.cache
 C:\Users\tobia\Source\Repos\Farmen2\obj\Debug\net6.0\ref\Farmen.dll
+C:\Users\banan\Source\Repos\Farmen32\obj\Debug\net6.0\Farmen.csproj.AssemblyReference.cache
+C:\Users\banan\Source\Repos\Farmen32\obj\Debug\net6.0\Farmen.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\banan\Source\Repos\Farmen32\obj\Debug\net6.0\Farmen.AssemblyInfoInputs.cache
+C:\Users\banan\Source\Repos\Farmen32\obj\Debug\net6.0\Farmen.AssemblyInfo.cs
+C:\Users\banan\Source\Repos\Farmen32\obj\Debug\net6.0\Farmen.csproj.CoreCompileInputs.cache
+C:\Users\banan\Source\Repos\Farmen32\obj\Debug\net6.0\Farmen.dll
+C:\Users\banan\Source\Repos\Farmen32\obj\Debug\net6.0\refint\Farmen.dll
+C:\Users\banan\Source\Repos\Farmen32\obj\Debug\net6.0\Farmen.pdb
