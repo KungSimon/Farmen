@@ -8,10 +8,21 @@ namespace Farmen
 {
     internal class BuildingManager
     {
+        AnimalManager animalManager = new AnimalManager();
+        FarmBuilding farmBuilding = new FarmBuilding("Barn7", 20);
         List<FarmBuilding> farmBuildings = new List<FarmBuilding>();
+        List<Animal> animals = new List<Animal>();
+        
         public BuildingManager()
         {
+            
             farmBuildings.Add(new FarmBuilding("Barn1", 20));
+            farmBuildings.Add(new FarmBuilding("Barn2", 20));
+            farmBuildings.Add(new FarmBuilding("Barn3", 20));
+            farmBuildings.Add(new FarmBuilding("Barn4", 20));
+            farmBuildings.Add(new FarmBuilding("Barn5", 20));
+            farmBuildings.Add(new FarmBuilding("Barn6", 20));
+            farmBuildings.Add(farmBuilding);
         }
         public void BuildingMenu()
         {
@@ -34,16 +45,33 @@ namespace Farmen
                     case "1":
                         ViewBuildings();
                         break;
+
                     case "2":
                         AddBuilding();
                         break;
+
                     case "3":
                         ReamoveBuilding();
                         break;
+                    
                     case "4":
-                        //FarmBuilding.AddAnimalInBuilding(true);
-
+                        farmBuilding.ListAnimalInBuilding();
                         break;
+                    
+                    case "5":
+                        AnimalManager animalManager = new AnimalManager();
+                        animalManager.GetAnimals();
+                        farmBuilding.AddAnimalInBuilding(animals);
+                        break;
+                    
+                    case "6":
+                       
+                        Console.WriteLine("Choose an Animal to Remove by Id");
+                        int id = int.Parse(Console.ReadLine());
+
+                        farmBuilding.RemoveAnimalInBuilding(id);
+                        break;
+
 
                     case "9":
                         break;

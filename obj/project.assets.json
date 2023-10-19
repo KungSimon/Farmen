@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tobia\\Source\\Repos\\Farmen2\\Farmen.csproj",
+      "projectUniqueName": "C:\\Users\\tobia\\Source\\Repos\\Farmen3\\Farmen.csproj",
       "projectName": "Farmen",
-      "projectPath": "C:\\Users\\tobia\\Source\\Repos\\Farmen2\\Farmen.csproj",
+      "projectPath": "C:\\Users\\tobia\\Source\\Repos\\Farmen3\\Farmen.csproj",
       "packagesPath": "C:\\Users\\tobia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tobia\\Source\\Repos\\Farmen2\\obj\\",
+      "outputPath": "C:\\Users\\tobia\\Source\\Repos\\Farmen3\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

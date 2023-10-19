@@ -37,13 +37,49 @@ namespace Farmen
             return null;
         }
 
-        public bool AddAnimalInBuilding(List<Animal> animals)
+        public void ListAnimalInBuilding()
+        {
+            foreach ( Animal animal in AnimalInBuilding)
+            {
+                animal.GetDescription();
+
+            }
+            IsFull();
+            IsEmpty();
+        }
+
+        public bool IsFull ()
+        {
+            if (AnimalInBuilding.Count >= Capacity)
+            {
+                Console.WriteLine("Building is full");
+                return true;
+            }
+            else 
+            { 
+                return false; 
+            }
+        }
+        public bool IsEmpty()
+        {
+            if (AnimalInBuilding.Count == 0)
+            {
+                Console.WriteLine("Building is empty");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void AddAnimalInBuilding(Animal)
         {
             if (AnimalInBuilding.Count < Capacity)
             {
-                Animal animalToAdd = null;
-                while (animalToAdd == null) ;
-                Console.WriteLine("Choose an animal to add by id.");
+                Animal animalToAdd;
+                
+               
                 try
                 {
                     int input = int.Parse(Console.ReadLine());
@@ -54,7 +90,7 @@ namespace Farmen
                             animalToAdd = animals[i];
                             AnimalInBuilding.Add(animalToAdd);
                             Console.WriteLine($"Added {animalToAdd.Id} to {Name}.");
-                            return true;
+                            
                         }
                     }
                 }
@@ -69,7 +105,7 @@ namespace Farmen
             {
                 Console.WriteLine($"Building {Name} is full");
             }
-            return false;
+            
         }
         public void RemoveAnimalInBuilding(int id)
         {
