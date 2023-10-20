@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\banan\\Source\\Repos\\Farmen32\\Farmen.csproj": {}
+    "C:\\Users\\banan\\Source\\Repos\\Farmen123\\Farmen.csproj": {}
   },
   "projects": {
-    "C:\\Users\\banan\\Source\\Repos\\Farmen32\\Farmen.csproj": {
+    "C:\\Users\\banan\\Source\\Repos\\Farmen123\\Farmen.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\banan\\Source\\Repos\\Farmen32\\Farmen.csproj",
+        "projectUniqueName": "C:\\Users\\banan\\Source\\Repos\\Farmen123\\Farmen.csproj",
         "projectName": "Farmen",
-        "projectPath": "C:\\Users\\banan\\Source\\Repos\\Farmen32\\Farmen.csproj",
+        "projectPath": "C:\\Users\\banan\\Source\\Repos\\Farmen123\\Farmen.csproj",
         "packagesPath": "C:\\Users\\banan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\banan\\Source\\Repos\\Farmen32\\obj\\",
+        "outputPath": "C:\\Users\\banan\\Source\\Repos\\Farmen123\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\banan\\AppData\\Roaming\\NuGet\\NuGet.Config",

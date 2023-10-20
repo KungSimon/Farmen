@@ -155,9 +155,9 @@ namespace Farmen
             }
 
         }
-        public void GetWorkers()
+        public List<Worker> GetWorkers()
         {
-            ViewWorkers();
+            return workers;
         }
     }
 }

@@ -22,15 +22,15 @@ namespace Farmen
 
             if (Name.Length <= 6)
             {
-                Console.WriteLine(Id + "\t" + Name + "\t\t\t" + Quantity + "\t" + CropType);
+                Console.WriteLine("Id" + Id + "\t" + Name + "\t\t\t" + Quantity + "\t" + CropType);
             }
             else if (Name.Length > 6 || Name.Length <= 12)
             {
-                Console.WriteLine(Id + "\t" + Name + "\t\t" + Quantity + "\t" + CropType);
+                Console.WriteLine("Id" + Id + "\t" + Name + "\t\t" + Quantity + "\t" + CropType);
             }
             else
             {
-                Console.WriteLine(Id + "\t" + Name + "\t" + Quantity + "\t" + CropType);
+                Console.WriteLine("Id" + Id + "\t" + Name + "\t" + Quantity + "\t" + CropType);
             }
 
             return null;

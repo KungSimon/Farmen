@@ -26,7 +26,7 @@ namespace Farmen
         public override string GetDescription()
         {
 
-                Console.WriteLine(Id + "\t" + Name);
+                Console.WriteLine("Id " + Id + "\t" + Name);
             foreach (string speciality in Specialties)
             {
                 Console.WriteLine("\t\t\t" + speciality);

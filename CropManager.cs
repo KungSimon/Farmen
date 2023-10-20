@@ -87,9 +87,9 @@ namespace Farmen
                 crop.GetDescription();
             }
         }
-        public void GetCrops()
+        public List<Crop> GetCrops()
         {
-            ViewCrops();
+            return crops;
         }
     }
 

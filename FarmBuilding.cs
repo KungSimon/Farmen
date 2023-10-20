@@ -23,15 +23,15 @@ namespace Farmen
         {
             if (Name.Length <= 6)
             {
-                Console.WriteLine(Id + "\t" + Name + "\t\t\t" + Capacity);
+                Console.WriteLine("Id" + Id + "\t" + Name + "\t\t\t" + Capacity);
             }
             else if (Name.Length > 6 || Name.Length <= 12)
             {
-                Console.WriteLine(Id + "\t" + Name + "\t\t" + Capacity);
+                Console.WriteLine("Id" + Id + "\t" + Name + "\t\t" + Capacity);
             }
             else
             {
-                Console.WriteLine(Id + "\t" + Name + "\t" + Capacity);
+                Console.WriteLine("Id" + Id + "\t" + Name + "\t" + Capacity);
             }
 
             return null;
@@ -94,6 +94,21 @@ namespace Farmen
                 {
                     AnimalInBuilding.Remove(AnimalInBuilding[i]);
                 }
+            }
+        }
+        public void GetDescription1()
+        {
+            if (Name.Length <= 6)
+            {
+                Console.WriteLine("Id" + Id + "\t" + Name + "\t\t\t" + AnimalInBuilding);
+            }
+            else if (Name.Length > 6 || Name.Length <= 12)
+            {
+                Console.WriteLine("Id" + Id + "\t" + Name + "\t\t" + AnimalInBuilding);
+            }
+            else
+            {
+                Console.WriteLine("Id" + Id + "\t" + Name + "\t" + AnimalInBuilding);
             }
         }
     }

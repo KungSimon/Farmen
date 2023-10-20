@@ -16,15 +16,15 @@ namespace Farmen
         
         public BuildingManager()
         {
-            
-            farmBuildings.Add(new FarmBuilding("Barn1", 20));
-            farmBuildings.Add(new FarmBuilding("Barn2", 20));
-            farmBuildings.Add(new FarmBuilding("Barn3", 20));
-            farmBuildings.Add(new FarmBuilding("Barn4", 20));
-            farmBuildings.Add(new FarmBuilding("Barn5", 20));
-            farmBuildings.Add(new FarmBuilding("Barn6", 20));
+            FarmBuilding farmBuilding1 = new FarmBuilding("Barn1", 20);
+            FarmBuilding farmBuilding2 = new FarmBuilding("Barn2", 80);
+            FarmBuilding farmBuilding3 = new FarmBuilding("Barn3", 30);
+            FarmBuilding farmBuilding4 = new FarmBuilding("Barn4", 5);
+            FarmBuilding farmBuilding5 = new FarmBuilding("Barn5", 50);
+            FarmBuilding farmBuilding6 = new FarmBuilding("Barn6", 10);
             farmBuildings.Add(farmBuilding);
         }
+        
         public void BuildingMenu()
         {
             bool BuildingMenu = true;
@@ -35,8 +35,7 @@ namespace Farmen
                 Console.WriteLine("2. Add building");
                 Console.WriteLine("3. Remove building");
                 Console.WriteLine("4. List Animals in building");
-                Console.WriteLine("5. Add animal to building");
-                Console.WriteLine("6. remove animal form building");
+                Console.WriteLine("5. remove animal form building");
                 Console.WriteLine("9. Quit");
 
                 string input = Console.ReadLine();
@@ -58,16 +57,8 @@ namespace Farmen
                     case "4":
                         farmBuilding.ListAnimalInBuilding();
                         break;
-                    
+    
                     case "5":
-                        AnimalManager animalManager = new AnimalManager();
-                        animalManager.GetAnimals();
-                        Console.WriteLine("Choose an animal by ID.");
-                        var animalToAdd = Console.ReadLine();
-                        farmBuilding.AddAnimalInBuilding(animalToAdd);
-                        break;
-                    
-                    case "6":
                        
                         Console.WriteLine("Choose an Animal to Remove by Id");
                         int id = int.Parse(Console.ReadLine());
@@ -122,10 +113,19 @@ namespace Farmen
                 farmBuilding.GetDescription();
             }
         }
-        public void GetFarmBuilding()
+        public List<FarmBuilding> GetFarmBuilding()
         {
-            ViewBuildings();
+            return farmBuildings;
 
         }
+        public void AddAnimal1()
+        {
+            List<Animal> animals = animalManager.GetAnimals();
+            foreach (Animal animal in animals)
+            {
+                Console.WriteLine(animal);
+            }
+        }
+
     }
 }

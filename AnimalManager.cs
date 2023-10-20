@@ -9,16 +9,38 @@ namespace Farmen
     //test
     internal class AnimalManager
     {
+
+        BuildingManager buildingManager = new BuildingManager();
         List<Animal> animals = new List<Animal>();
         public AnimalManager()
         {
             animals.Add(new Animal("Olle", "Pig"));
+            animals.Add(new Animal("Olle", "Pig"));
+            animals.Add(new Animal("Olle", "Pig"));
+            animals.Add(new Animal("Olle", "Pig"));
+            animals.Add(new Animal("Olle", "Pig"));
+            animals.Add(new Animal("Olle", "Pig"));
+            animals.Add(new Animal("Pelle", "Cow"));
+            animals.Add(new Animal("Pelle", "Cow"));
+            animals.Add(new Animal("Pelle", "Cow"));
+            animals.Add(new Animal("Pelle", "Cow"));
             animals.Add(new Animal("Pelle", "Cow"));
             animals.Add(new Animal("Rut", "Chicken"));
+            animals.Add(new Animal("Rut", "Chicken"));
+            animals.Add(new Animal("Rut", "Chicken"));
+            animals.Add(new Animal("Rut", "Chicken"));
+            animals.Add(new Animal("Rut", "Chicken"));
             animals.Add(new Animal("Pernilla", "Sheep"));
+            animals.Add(new Animal("Pernilla", "Sheep"));
+            animals.Add(new Animal("Pernilla", "Sheep"));
+            animals.Add(new Animal("Pernilla", "Sheep"));
+            animals.Add(new Animal("Pernilla", "Sheep"));
+            animals.Add(new Animal("Pernilla", "Sheep"));
+
         }
         public void AnimalMenu()
         {
+            
             bool animalMenu = true;
             while (animalMenu)
             {
@@ -54,7 +76,7 @@ namespace Farmen
                         break;
 
                     case "5":
-                        FeedAnimal();
+                        //FeedAnimal();
                         break;
 
                     case "9":
@@ -69,15 +91,35 @@ namespace Farmen
 
         private void AddAnimal()
         {
+            List<FarmBuilding> farmBuildings = buildingManager.GetFarmBuilding();
             Console.WriteLine();
-            Console.WriteLine("Give the animal an Id No.");
-            int id = int.Parse(Console.ReadLine());
             Console.WriteLine("What is the animals name");
             string name = Console.ReadLine();
             Console.WriteLine("What species is the animal");
             string species = Console.ReadLine();
+            Animal animalToAdd = new Animal(name, species);
+          
 
+            foreach (FarmBuilding farmBuilding in farmBuildings)
+            {
+                farmBuilding.GetDescription();
+            }
+            Console.WriteLine("Which building would you like to add the animal to? Choose by ID.");
+            int building = int.Parse(Console.ReadLine());
+
+            foreach (FarmBuilding farmBuilding in farmBuildings)
+            {
+                if (building == farmBuilding.Id)
+                {
+                    farmBuilding.AddAnimalInBuilding(animalToAdd);
+                }
+            }
             animals.Add(new Animal(name, species));
+
+            foreach (FarmBuilding farmBuilding in farmBuildings)
+            {
+                farmBuilding.GetDescription1();
+            }
         }
 
         private void ViewAnimals()
@@ -101,9 +143,9 @@ namespace Farmen
                 }
 
         }
-        public void GetAnimals()
+        public List<Animal> GetAnimals()
         {
-            ViewAnimals();
+            return animals;
         }
     }
 }
