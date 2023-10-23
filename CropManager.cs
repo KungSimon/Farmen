@@ -8,6 +8,7 @@ namespace Farmen
 {
     internal class CropManager
     {
+       
         List<Crop> crops = new List<Crop>();
 
         public CropManager()
@@ -44,6 +45,19 @@ namespace Farmen
                         break;
 
                     case "2":
+                        WorkerManager workerManager = new WorkerManager();
+                        List<Worker> workers = workerManager.GetWorkers();
+                        foreach (Worker worker in workers)
+                        {
+                            worker.GetDescription();
+                        }
+
+
+
+                        for (int i = 0; i < workers.Count; i++)
+                        {
+                            
+                        }
                         AddCrop();
                         break;
 
@@ -60,9 +74,18 @@ namespace Farmen
             }
         }
 
-        private void AddCrop()
+        private void AddCrop(Worker worker)
         {
+            ViewCrops();
+            Console.WriteLine("Which crop would you like to harvest?");
+            string input = Console.ReadLine();
+            if (input = worker.Specialties)
+            {
+
+            }
             
+
+
         }
 
         private void RemoveCrop(int id)

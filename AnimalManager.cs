@@ -10,7 +10,7 @@ namespace Farmen
     internal class AnimalManager
     {
 
-        BuildingManager buildingManager = new BuildingManager();
+        
         List<Animal> animals = new List<Animal>();
         public AnimalManager()
         {
@@ -91,6 +91,7 @@ namespace Farmen
 
         private void AddAnimal()
         {
+            BuildingManager buildingManager = new BuildingManager();
             List<FarmBuilding> farmBuildings = buildingManager.GetFarmBuilding();
             Console.WriteLine();
             Console.WriteLine("What is the animals name");
@@ -138,7 +139,8 @@ namespace Farmen
                 {
                     if (animals[i].Id == id)
                     {
-                        animals.Remove(animals[i]);
+                    Console.WriteLine($"Animal {animals[i].Id} succesfully removed.");
+                    animals.Remove(animals[i]);
                     }
                 }
 
