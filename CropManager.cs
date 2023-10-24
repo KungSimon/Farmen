@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,27 +42,50 @@ namespace Farmen
                 switch (input)
                 {
                     case "1":
-                        ViewCrops();
+                       // ViewCrops();
                         break;
 
                     case "2":
                         WorkerManager workerManager = new WorkerManager();
                         List<Worker> workers = workerManager.GetWorkers();
-                        foreach (Worker worker in workers)
+
+                        bool workerId = false;
+                        while (workerId == false)
                         {
-                            worker.GetDescription();
+
+                            foreach (Worker worker in workers)
+                            {
+                                worker.GetDescription();
+                            }
+                            try
+                            {
+                                Console.WriteLine("Which worker do you whant to assign choose by Id");
+                                int id1 = int.Parse(Console.ReadLine());
+
+
+                                for (int i = 0; i < workers.Count; i++)
+                                {
+                                    if (workers[i].Id == id1)
+                                    {
+                                        Console.WriteLine("you found " + workers[i]);
+                                        AddCrop(workers[i]);
+                                        workerId = true;
+
+                                        break;
+
+                                    }
+                                }
+                            }
+                            catch
+                            {
+                                Console.WriteLine("Worker does not exist choose new worker");
+                            }
+                           
                         }
-
-
-
-                        for (int i = 0; i < workers.Count; i++)
-                        {
-                            
-                        }
-                        AddCrop();
+                        
                         break;
 
-                    case "3":
+                   case "3":
                         Console.WriteLine("Choose an crop to use by ID");
                         int id = int.Parse(Console.ReadLine());
                         RemoveCrop(id);
@@ -74,18 +98,29 @@ namespace Farmen
             }
         }
 
-        private void AddCrop(Worker worker)
+        public void AddCrop(Worker worker)
         {
-            ViewCrops();
-            Console.WriteLine("Which crop would you like to harvest?");
-            string input = Console.ReadLine();
-            if (input = worker.Specialties)
-            {
+          
 
+            foreach (Crop crop in crops)
+            {
+                crop.GetDescription();
+            }
+            Console.WriteLine("choose a crop to harvest by Id ");
+            int id = int.Parse( Console.ReadLine());
+
+            for (int i = 0;i < crops.Count;i++)
+            {
+                if (crops[i].Id == id)
+                {
+
+                   crops[i].AddCrop(id);
+                    Console.WriteLine(worker.GetDescription + " harvested " + crops[i].GetDescription);
+                }
             }
             
-
-
+            
+         
         }
 
         private void RemoveCrop(int id)
