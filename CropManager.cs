@@ -67,7 +67,7 @@ namespace Farmen
                                 {
                                     if (workers[i].Id == id1)
                                     {
-                                        Console.WriteLine("you found " + workers[i]);
+                                        Console.WriteLine("you chose " + workers[i].GetDescription());
                                         AddCrop(workers[i]);
                                         workerId = true;
 
@@ -115,7 +115,7 @@ namespace Farmen
                 {
 
                    crops[i].AddCrop(id);
-                    Console.WriteLine(worker.GetDescription + " harvested " + crops[i].GetDescription);
+                    Console.WriteLine(worker.GetDescription() + " harvested " + crops[i].GetDescription());
                 }
             }
             
