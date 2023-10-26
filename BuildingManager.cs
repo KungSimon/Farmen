@@ -9,20 +9,53 @@ namespace Farmen
     internal class BuildingManager
     {
         AnimalManager animalManager = new AnimalManager();
-        FarmBuilding farmBuilding = new FarmBuilding("Barn7", 20);
+ 
         List<FarmBuilding> farmBuildings = new List<FarmBuilding>();
-        List<Animal> animals = new List<Animal>();
+
         Animal animal = new Animal("");
         
         public BuildingManager()
         {
+            List<Animal> animals = animalManager.GetAnimals();
             FarmBuilding farmBuilding1 = new FarmBuilding("Barn1", 20);
             FarmBuilding farmBuilding2 = new FarmBuilding("Barn2", 80);
-            FarmBuilding farmBuilding3 = new FarmBuilding("Barn3", 30);
-            FarmBuilding farmBuilding4 = new FarmBuilding("Barn4", 5);
-            FarmBuilding farmBuilding5 = new FarmBuilding("Barn5", 50);
-            FarmBuilding farmBuilding6 = new FarmBuilding("Barn6", 10);
-            farmBuildings.Add(farmBuilding);
+            FarmBuilding farmBuilding3 = new FarmBuilding("Barn3", 5);
+            FarmBuilding farmBuilding4 = new FarmBuilding("Barn4", 10);
+            FarmBuilding farmBuilding5 = new FarmBuilding("Barn5", 20);
+            FarmBuilding farmBuilding6 = new FarmBuilding("Barn6", 30);
+            farmBuildings.Add(farmBuilding1);
+            farmBuildings.Add(farmBuilding2);
+            farmBuildings.Add(farmBuilding3);
+            farmBuildings.Add(farmBuilding4);
+            farmBuildings.Add(farmBuilding5);
+            farmBuildings.Add(farmBuilding6);
+            
+
+
+                farmBuilding1.AddAnimalInBuilding(animals[0]);
+                farmBuilding1.AddAnimalInBuilding(animals[1]);
+                farmBuilding1.AddAnimalInBuilding(animals[2]);
+                farmBuilding1.AddAnimalInBuilding(animals[3]);
+                farmBuilding1.AddAnimalInBuilding(animals[4]);
+                farmBuilding1.AddAnimalInBuilding(animals[5]);
+                farmBuilding2.AddAnimalInBuilding(animals[6]);
+                farmBuilding2.AddAnimalInBuilding(animals[7]);
+                farmBuilding2.AddAnimalInBuilding(animals[8]);
+                farmBuilding2.AddAnimalInBuilding(animals[9]);
+                farmBuilding2.AddAnimalInBuilding(animals[10]);
+                farmBuilding3.AddAnimalInBuilding(animals[11]);
+                farmBuilding3.AddAnimalInBuilding(animals[12]);
+                farmBuilding3.AddAnimalInBuilding(animals[13]);
+                farmBuilding3.AddAnimalInBuilding(animals[14]);
+                farmBuilding3.AddAnimalInBuilding(animals[15]);
+                farmBuilding4.AddAnimalInBuilding(animals[16]);
+                farmBuilding4.AddAnimalInBuilding(animals[17]);
+                farmBuilding4.AddAnimalInBuilding(animals[18]);
+                farmBuilding4.AddAnimalInBuilding(animals[19]);
+                farmBuilding4.AddAnimalInBuilding(animals[20]);
+                farmBuilding4.AddAnimalInBuilding(animals[21]);
+            
+
         }
         
         public void BuildingMenu()
@@ -51,30 +84,43 @@ namespace Farmen
                         break;
 
                     case "3":
-                        ReamoveBuilding();
+                        RemoveBuilding();
                         break;
                     
                     case "4":
-                        farmBuilding.ListAnimalInBuilding();
+                        foreach (FarmBuilding farmBuilding in farmBuildings)
+                        {
+                            farmBuilding.GetDescription();
+                        }
                         break;
     
-                    case "5":
-                       
+                    /*case "5":
+                       foreach (Animal animal in animalsInBuilding)
+                        {
+                            animal.GetDescription();
+                        }
+                        FarmBuilding selectedFarmBuilding = null;
                         Console.WriteLine("Choose an Animal to Remove by Id");
                         int id = int.Parse(Console.ReadLine());
-
-                        farmBuilding.RemoveAnimalInBuilding(id);
-                        break;
+                        for (int i = 0; i < animalsInBuilding.Count; i++)
+                        {
+                            if (animalsInBuilding[i].Id == id)
+                            {
+                                selectedFarmBuilding.RemoveAnimalInBuilding(id);
+                            }
+                        }
+                        break;*/
 
 
                     case "9":
+                        BuildingMenu = false;
                         break;
                 }
             }
 
         }
 
-        private void ReamoveBuilding()
+        private void RemoveBuilding()
         {
             Console.WriteLine("Choose an building by Id");
             ViewBuildings();

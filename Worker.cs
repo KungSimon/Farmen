@@ -26,12 +26,13 @@ namespace Farmen
         public override string GetDescription()
         {
 
-                Console.WriteLine("Id " + Id + "\t" + Name);
+                Console.Write("Id " + Id + "\t" + Name + "\t");
             foreach (string speciality in Specialties)
             {
-                Console.WriteLine("\t\t\t" + speciality);
+                Console.Write(" " + speciality);
             }
-           return Name;
+            Console.WriteLine();
+            return Name;
         }
 
     }

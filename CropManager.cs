@@ -19,11 +19,13 @@ namespace Farmen
             Crop crop1= new Crop("Corn", 80, "Feed");
             Crop crop2= new Crop("Rye", 100, "Food");
             Crop crop3= new Crop("Oat", 100, "Feed");
+            Crop crop4= new Crop("Silage", 100, "Feed");
 
+            crops.Add(crop);
             crops.Add(crop1);
             crops.Add(crop2);
             crops.Add(crop3);
-            crops.Add(crop);
+            crops.Add(crop4);
 
         }
         public void CropMenu()
@@ -42,53 +44,20 @@ namespace Farmen
                 switch (input)
                 {
                     case "1":
-                       // ViewCrops();
+                        ViewCrops();
                         break;
 
                     case "2":
-                        WorkerManager workerManager = new WorkerManager();
-                        List<Worker> workers = workerManager.GetWorkers();
-
-                        bool workerId = false;
-                        while (workerId == false)
-                        {
-
-                            foreach (Worker worker in workers)
-                            {
-                                worker.GetDescription();
-                            }
-                            try
-                            {
-                                Console.WriteLine("Which worker do you whant to assign choose by Id");
-                                int id1 = int.Parse(Console.ReadLine());
-
-
-                                for (int i = 0; i < workers.Count; i++)
-                                {
-                                    if (workers[i].Id == id1)
-                                    {
-                                        Console.WriteLine("you chose " + workers[i].GetDescription());
-                                        AddCrop(workers[i]);
-                                        workerId = true;
-
-                                        break;
-
-                                    }
-                                }
-                            }
-                            catch
-                            {
-                                Console.WriteLine("Worker does not exist choose new worker");
-                            }
-                           
-                        }
-                        
+                        Worker selectedWorker = ChooseWorker(); 
+                        AddCrop(selectedWorker);
                         break;
 
                    case "3":
+                        ViewCrops();
                         Console.WriteLine("Choose an crop to use by ID");
                         int id = int.Parse(Console.ReadLine());
                         RemoveCrop(id);
+                        ViewCrops();
                         break;
 
                     case "9":
@@ -100,8 +69,6 @@ namespace Farmen
 
         public void AddCrop(Worker worker)
         {
-          
-
             foreach (Crop crop in crops)
             {
                 crop.GetDescription();
@@ -113,28 +80,20 @@ namespace Farmen
             {
                 if (crops[i].Id == id)
                 {
-
-                   crops[i].AddCrop(id);
-                    Console.WriteLine(worker.GetDescription() + " harvested " + crops[i].GetDescription());
+                    crops[i].AddCrop(crops[i].Id);
                 }
             }
-            
-            
-         
         }
 
         private void RemoveCrop(int id)
         {
-            Console.WriteLine("How many of the crops do you want to use?");
-            int UsedCrop = int.Parse(Console.ReadLine());
-                for (int i = 0; i < crops.Count; i++)
+            for (int i = 0; i < crops.Count; i++)
+            {
+                if (crops[i].Id == id)
                 {
-                    if (crops[i].Id == id)
-                    {
-                        int newQuantity = crops[i].Quantity - UsedCrop;
-                        crops[i].Quantity = newQuantity; 
-                    }
+                    crops.Remove(crops[i]);
                 }
+            }
         }
 
         private void ViewCrops()
@@ -148,6 +107,41 @@ namespace Farmen
         public List<Crop> GetCrops()
         {
             return crops;
+        }
+        public Worker ChooseWorker() //Skapas för att minska kod i menyn och för att återanvändas i andra klasser.
+        {
+            WorkerManager workerManager = new WorkerManager();
+            List<Worker> workers = workerManager.GetWorkers();
+            foreach (Worker worker in workers)
+            {
+                worker.GetDescription();
+            }
+            bool WorkerExist = false;
+            while (!WorkerExist)
+            {
+                try
+                {
+                    Console.WriteLine("Which worker do you whant to assign choose by Id");
+                    int idWorker = int.Parse(Console.ReadLine());
+
+
+                    for (int i = 0; i < workers.Count; i++)
+                    {
+                        if (workers[i].Id == idWorker)
+                        {
+                            return workers[i];
+                            WorkerExist = true;
+                        }
+                    }
+                    Console.WriteLine("Invalid worker, please try again");
+                }
+                catch
+                {
+                    Console.WriteLine("Please choose a worker by Id.");
+                }
+            }
+            return null;
+            
         }
     }
 

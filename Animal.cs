@@ -9,11 +9,13 @@ namespace Farmen
     internal class Animal : Entity
     {
         public string Species { get; set; }
+        public List <string> acceptableCropTypes { get; set; }
 
         public Animal(string name, string species)
-            :base(name)
+            : base(name)
         {
             Species = species;
+            acceptableCropTypes = new List<string>();
         }
         public Animal(string name):base(name)
         {
@@ -36,6 +38,25 @@ namespace Farmen
             }
 
             return null;
+        }
+        public void Feed(Crop crop)
+        {
+            CropManager cropManager = new CropManager();
+            List<Crop> crops = cropManager.GetCrops();
+            for (int i = 0; i < crops.Count; i++)
+            {
+                if (crops[i] == crop)
+                {
+                    crops[i].TakeCrop(crops[i].Id);
+                }
+            }
+
+
+
+        }
+        public void AddCropType(string acceptableCropType)
+        {
+            acceptableCropTypes.Add(acceptableCropType);
         }
     }
 

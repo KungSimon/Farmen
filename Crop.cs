@@ -9,7 +9,6 @@ namespace Farmen
 {
     internal class Crop : Entity
     {
-        List<Crop> crops = new List<Crop>();
         public int Quantity { get; set; }
         public string CropType { get; set; }
         public Crop(string name, int quantity, string cropType)
@@ -37,44 +36,27 @@ namespace Farmen
 
             return null;
         }
-        public void AddCrop(int Id)
+        public void AddCrop(int id)
         {
-            bool existingCropFound = true;
-
+            CropManager cropManager = new CropManager();
+            List<Crop> crops = cropManager.GetCrops();
             for (int i = 0; i < crops.Count; i++)
             {
-                if (Id == crops[i].Id)
+                if (crops[i].Id != id)
                 {
                     Console.WriteLine("Enter the quantity of the crop: ");
                     int Newquantity = int.Parse(Console.ReadLine());
-                    crops[i].Quantity = + Newquantity;
-
+                    crops[i].Quantity += Newquantity;
                     Console.WriteLine($" The new quantity of {crops[i].Name} is {crops[i].Quantity} ");
-
-                    existingCropFound = true;
                     break;
                 }
             }
-            if (!existingCropFound)
-            {
-                Console.WriteLine("Enter the name of the crop: ");
-                string Newname = Console.ReadLine();
-
-                Console.WriteLine("Enter the quantity of the crop: ");
-                int quantity = int.Parse(Console.ReadLine());
-
-                Console.WriteLine("What type of crop is it?");
-                string type = Console.ReadLine();
-
-                crops.Add(new Crop(Newname, quantity, type));
-                Console.WriteLine($"Added {quantity} units of {type} {Newname} ");
-            }
         }
-
 
         public bool TakeCrop (int Id)
         {
-            
+            CropManager cropManager = new CropManager();
+            List<Crop> crops = cropManager.GetCrops();
             for (int i = 0;i<crops.Count; i++)
             {
                 if (Id == crops[i].Id)
@@ -92,6 +74,8 @@ namespace Farmen
         }
         public int ChekQuantity() //Skapade denna funktion för att inte fåp för många måsvingar så att koden blir mer överskådlig
         {
+            CropManager cropManager = new CropManager();
+            List<Crop> crops = cropManager.GetCrops();
 
             for (int i = 0; i < crops.Count; i++)
             {

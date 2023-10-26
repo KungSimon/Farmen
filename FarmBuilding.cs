@@ -8,14 +8,14 @@ namespace Farmen
 {
     internal class FarmBuilding : Entity
     {
-        List<Animal> AnimalInBuilding { get; set; }
+        List<Animal> animalsInBuilding { get; set; }
         public int Capacity { get; set; }
 
-        public FarmBuilding(string name, int capacity /*, List <Animal> animalInBuilding*/)
+        public FarmBuilding(string name, int capacity /*, List <Animal> animalsInBuilding*/)
             :base(name)
         {
             Capacity = capacity;
-            AnimalInBuilding = new List<Animal>();  
+            animalsInBuilding = new List<Animal>();  
         }
 
         
@@ -24,22 +24,27 @@ namespace Farmen
             if (Name.Length <= 6)
             {
                 Console.WriteLine("Id" + Id + "\t" + Name + "\t\t\t" + Capacity);
+                foreach (Animal animal in animalsInBuilding)
+                {
+                    Console.Write(" " + animal);
+                }
+
             }
-            else if (Name.Length > 6 || Name.Length <= 12)
-            {
-                Console.WriteLine("Id" + Id + "\t" + Name + "\t\t" + Capacity);
-            }
-            else
-            {
-                Console.WriteLine("Id" + Id + "\t" + Name + "\t" + Capacity);
-            }
+           //else if (Name.Length > 6 || Name.Length <= 12)
+           //{
+           //    Console.WriteLine("Id" + Id + "\t" + Name + "\t\t" + Capacity + " " + animalsInBuilding);
+           //}
+           //else
+           //{
+           //    Console.WriteLine("Id" + Id + "\t" + Name + "\t" + Capacity + " " +  animalsInBuilding);
+           //}
 
             return null;
         }
 
         public void ListAnimalInBuilding()
         {
-            foreach ( Animal animal in AnimalInBuilding)
+            foreach ( Animal animal in animalsInBuilding)
             {
                 animal.GetDescription();
 
@@ -50,7 +55,7 @@ namespace Farmen
 
         public bool IsFull ()
         {
-            if (AnimalInBuilding.Count >= Capacity)
+            if (animalsInBuilding.Count >= Capacity)
             {
                 Console.WriteLine("Building is full");
                 return true;
@@ -62,7 +67,7 @@ namespace Farmen
         }
         public bool IsEmpty()
         {
-            if (AnimalInBuilding.Count == 0)
+            if (animalsInBuilding.Count == 0)
             {
                 Console.WriteLine("Building is empty");
                 return true;
@@ -75,24 +80,25 @@ namespace Farmen
 
         public void AddAnimalInBuilding(Animal animalToAdd)
         {
-            if (AnimalInBuilding.Count < Capacity)
+            AnimalManager animalManager = new AnimalManager();
+            List <Animal> animals = animalManager.GetAnimals();
+            for (int i = 0; i < animals.Count; i++)
             {
-                AnimalInBuilding.Add(animalToAdd);
+                if (animals[i] == animalToAdd)
+                {
+                    animalsInBuilding.Add(animals[i]);
+                }
             }
-            else
-            {
-                Console.WriteLine($"Building {Name} is full");
-            }
-            
         }
         public void RemoveAnimalInBuilding(int id)
         {
-            
-            for (int i = 0; i < AnimalInBuilding.Count; i++)
+            BuildingManager buildingManager = new BuildingManager();
+            List <Animal> animals = animalsInBuilding;
+            for (int i = 0; i < animalsInBuilding.Count; i++)
             {
-                if (AnimalInBuilding[i].Id == id)
+                if (animalsInBuilding[i].Id == id)
                 {
-                    AnimalInBuilding.Remove(AnimalInBuilding[i]);
+                    animalsInBuilding.Remove(animalsInBuilding[i]);
                 }
             }
         }
@@ -100,15 +106,15 @@ namespace Farmen
         {
             if (Name.Length <= 6)
             {
-                Console.WriteLine("Id" + Id + "\t" + Name + "\t\t\t" + AnimalInBuilding);
+                Console.WriteLine("Id" + Id + "\t" + Name + "\t\t\t" + animalsInBuilding);
             }
             else if (Name.Length > 6 || Name.Length <= 12)
             {
-                Console.WriteLine("Id" + Id + "\t" + Name + "\t\t" + AnimalInBuilding);
+                Console.WriteLine("Id" + Id + "\t" + Name + "\t\t" + animalsInBuilding);
             }
             else
             {
-                Console.WriteLine("Id" + Id + "\t" + Name + "\t" + AnimalInBuilding);
+                Console.WriteLine("Id" + Id + "\t" + Name + "\t" + animalsInBuilding);
             }
         }
     }
