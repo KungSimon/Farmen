@@ -17,21 +17,24 @@ namespace Farmen
             Quantity = quantity;
             CropType = cropType;
         }
-
+        public string GetName()
+        {
+            return Name;
+        }
         public override string GetDescription()
         {
 
             if (Name.Length <= 6)
             {
-                Console.WriteLine("Id" + Id + "\t" + Name + "\t\t\t" + Quantity + "\t" + CropType);
+                Console.WriteLine("Id" + Id + "\t" + "Cropname: " + Name + "\t\t\t" + "Quantity of crop: " + Quantity + "\t" + "Croptype: " + CropType);
             }
             else if (Name.Length > 6 || Name.Length <= 12)
             {
-                Console.WriteLine("Id" + Id + "\t" + Name + "\t\t" + Quantity + "\t" + CropType);
+                Console.WriteLine("Id" + Id + "\t" + "Cropname: " + Name + "\t\t" + "Quantity of crop: " + Quantity + "\t" + "Croptype: " + CropType);
             }
             else
             {
-                Console.WriteLine("Id" + Id + "\t" + Name + "\t" + Quantity + "\t" + CropType);
+                Console.WriteLine("Id" + Id + "\t" + "Cropname: " + Name + "\t" + "Quantity of crop: " + Quantity + "\t" + "Croptype: " + CropType);
             }
 
             return null;
@@ -61,9 +64,9 @@ namespace Farmen
             {
                 if (Id == crops[i].Id)
                 {
-                   int quantity = ChekQuantity();
-                   crops[i].Quantity = -quantity;
-                   Console.WriteLine($"Now you have {crops[i].Quantity} left");
+                   //int quantity = CheckQuantity();
+                   //crops[i].Quantity = -quantity;
+                   //Console.WriteLine($"Now you have {crops[i].Quantity} left");
                    
 
                 }
@@ -72,8 +75,34 @@ namespace Farmen
             return true;
 
         }
-        public int ChekQuantity() //Skapade denna funktion för att inte fåp för många måsvingar så att koden blir mer överskådlig
+        public int CheckQuantity() //Skapade denna funktion för att inte fåp för många måsvingar så att koden blir mer överskådlig
         {
+            /*while (true)
+            {
+                try
+                {
+                    Console.WriteLine($"How much {crop.CropType} do you want to use");
+                    int quantity = int.Parse(Console.ReadLine());
+
+                    if (quantity > 0 && quantity <= crop.Quantity)
+                    {
+                        return quantity;
+                    }
+                    else if (quantity == 0)
+                    {
+                        return quantity;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not enough Crops");
+                        Console.WriteLine("0 will cancel the request");
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Please use numbers");
+                }
+            }*/
             CropManager cropManager = new CropManager();
             List<Crop> crops = cropManager.GetCrops();
 
@@ -110,5 +139,8 @@ namespace Farmen
             }
             return 0;
         }
+
+        
     }
+    
 }

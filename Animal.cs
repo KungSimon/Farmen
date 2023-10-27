@@ -39,7 +39,7 @@ namespace Farmen
 
             return null;
         }
-        public void Feed(Crop crop)
+        public void Feed(Crop crop, int quantity)
         {
             CropManager cropManager = new CropManager();
             List<Crop> crops = cropManager.GetCrops();

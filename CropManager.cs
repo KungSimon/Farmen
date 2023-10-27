@@ -14,18 +14,29 @@ namespace Farmen
 
         public CropManager()
         {
+            
 
-            Crop crop = new Crop("Wheat", 100, "Food");
-            Crop crop1= new Crop("Corn", 80, "Feed");
-            Crop crop2= new Crop("Rye", 100, "Food");
-            Crop crop3= new Crop("Oat", 100, "Feed");
-            Crop crop4= new Crop("Silage", 100, "Feed");
+            Crop crop = new Crop("Wheat", 100, "Grain");
+            Crop crop1= new Crop("Corn", 80, "Seed");
+            Crop crop2= new Crop("Rye", 100, "Grain");
+            Crop crop3= new Crop("Oat", 100, "Grain");
+            Crop crop4= new Crop("Silage", 100, "Grass");
+            Crop crop5= new Crop("Sugar snap peas", 170, "Seed");
+            Crop crop6= new Crop("Pumpkin seeds", 500, "Seed");
+            Crop crop7= new Crop("Pumkin", 180, "Cucumber plant");
+            Crop crop8= new Crop("Melon", 20, "Cucumber plant");
+            Crop crop9= new Crop("Cucumber", 100, "Cucumber plant");
 
             crops.Add(crop);
             crops.Add(crop1);
             crops.Add(crop2);
             crops.Add(crop3);
             crops.Add(crop4);
+            crops.Add(crop5);
+            crops.Add(crop6);
+            crops.Add(crop7);
+            crops.Add(crop8);
+            crops.Add(crop9);
 
         }
         public void CropMenu()

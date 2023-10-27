@@ -8,6 +8,7 @@ namespace Farmen
 {
     internal class FarmBuilding : Entity
     {
+        
         List<Animal> animalsInBuilding { get; set; }
         public int Capacity { get; set; }
 
@@ -21,7 +22,19 @@ namespace Farmen
         
         public override string GetDescription()
         {
+            string description = string.Empty;
+
             if (Name.Length <= 6)
+            {
+                description = $"Id {Id}\t{Name}\t\t\t{Capacity} ";
+            }
+            foreach (Animal animal in animalsInBuilding)
+            {
+                description += animal.ToString() + " ";
+            }
+            return description;
+
+            /*if (Name.Length <= 6)
             {
                 Console.WriteLine("Id" + Id + "\t" + Name + "\t\t\t" + Capacity);
                 foreach (Animal animal in animalsInBuilding)
@@ -30,6 +43,7 @@ namespace Farmen
                 }
 
             }
+            return;*/
            //else if (Name.Length > 6 || Name.Length <= 12)
            //{
            //    Console.WriteLine("Id" + Id + "\t" + Name + "\t\t" + Capacity + " " + animalsInBuilding);
@@ -39,7 +53,7 @@ namespace Farmen
            //    Console.WriteLine("Id" + Id + "\t" + Name + "\t" + Capacity + " " +  animalsInBuilding);
            //}
 
-            return null;
+            
         }
 
         public void ListAnimalInBuilding()
@@ -80,6 +94,15 @@ namespace Farmen
 
         public void AddAnimalInBuilding(Animal animalToAdd)
         {
+            if (!animalsInBuilding.Any(animal => animal.Id == animalToAdd.Id))
+            {
+                animalsInBuilding.Add(animalToAdd);
+            }
+            else
+            {
+                Console.WriteLine("Animal is already in the building.");
+            }
+            /*animalsInBuilding.Add(animalToAdd);
             AnimalManager animalManager = new AnimalManager();
             List <Animal> animals = animalManager.GetAnimals();
             for (int i = 0; i < animals.Count; i++)
@@ -88,7 +111,7 @@ namespace Farmen
                 {
                     animalsInBuilding.Add(animals[i]);
                 }
-            }
+            }*/
         }
         public void RemoveAnimalInBuilding(int id)
         {
